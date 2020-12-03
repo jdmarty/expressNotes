@@ -7,4 +7,8 @@ htmlRouter.get('*', (req, res, next) => {
     res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
+htmlRouter.get("/", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "../public/notes.html"));
+});
+
 module.exports = htmlRouter;
