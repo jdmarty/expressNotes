@@ -37,4 +37,21 @@ apiRouter.post('/notes', (req, res, next) => {
     });
 });
 
+//Delete an existing note
+apiRouter.delete('/notes/:id', (req, res, next) => {
+    const deleteId = req.params.id;
+    console.log(deleteId);
+    fs.readFile(dbPath, 'utf8', (err, data) => {
+        if (err) throw err;
+        //parse data into JSON and filter out matching id
+        const notesList = JSON.parse(data).filter(note => note.id !== deleteId);
+        //re-write the database with the new array
+        fs.writeFile(dbPath, JSON.stringify(notesList), err => {
+            if (err) throw err;
+            console.log('Note deleted');
+            res.status(204).send();
+        });
+    });
+})
+
 module.exports = apiRouter;
