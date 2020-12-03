@@ -18,7 +18,8 @@ const htmlRouter = require('./routes/htmlRouter');
 app.use('/', htmlRouter);
 
 //api router
-
+const apiRouter = require('./routes/apiRouter');
+app.use('/api', apiRouter);
 
 //Listen on PORT
 app.listen(PORT, function () {
