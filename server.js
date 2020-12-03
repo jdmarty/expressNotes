@@ -1,15 +1,23 @@
+//modules
 const path = require("path");
 var express = require("express");
 
+//express variables
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+//static server middleware
+app.use(express.static('public'));
 
 //middle ware for body parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//api router
+//html router
+const htmlRouter = require('./routes/htmlRouter');
+app.use('/', htmlRouter);
 
+//api router
 
 
 //Listen on PORT
