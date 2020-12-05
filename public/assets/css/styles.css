@@ -68,3 +68,17 @@ html, body {
   padding: 20px;
   cursor: pointer;
 }
+
+/* Animations for list item buttons */
+.delete-note, .edit-note {
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.delete-note:hover, .edit-note:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+};
+

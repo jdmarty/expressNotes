@@ -52,6 +52,6 @@ apiRouter.delete('/notes/:id', (req, res, next) => {
             res.status(204).send();
         });
     });
-})
+});
 
 module.exports = apiRouter;

@@ -107,6 +107,12 @@ const handleRenderSaveBtn = function () {
   }
 };
 
+const handleEditButton = function() {
+  $noteTitle.attr("readonly", false);
+  $noteText.attr("readonly", false);
+  handleRenderSaveBtn();
+}
+
 // Render's the list of note titles
 const renderNoteList = (notes) => {
   $noteList.empty();
@@ -125,7 +131,10 @@ const renderNoteList = (notes) => {
       const $delBtn = $(
         "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
       );
-      $li.append($delBtn);
+      const editBtn = $(
+        "<i class='fas fa-pen float-right text-primary edit-note mr-2'>"
+      );
+      $li.append($delBtn, editBtn);
     }
     return $li;
   };
