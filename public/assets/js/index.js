@@ -54,8 +54,8 @@ const renderActiveNote = () => {
     $noteTitle.val(activeNote.title);
     $noteText.val(activeNote.text);
   } else {
-    $noteTitle.attr("readonly", false);
-    $noteText.attr("readonly", false);
+    // $noteTitle.attr("readonly", false);
+    // $noteText.attr("readonly", false);
     $noteTitle.val("");
     $noteText.val("");
   }
