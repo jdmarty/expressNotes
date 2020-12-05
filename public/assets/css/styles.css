@@ -72,7 +72,7 @@ html, body {
 /* Animations for list item buttons */
 .delete-note, .edit-note {
   opacity: 0.5;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-out;
 }
 
 .delete-note:hover, .edit-note:hover {

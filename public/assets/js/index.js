@@ -32,14 +32,24 @@ const deleteNote = (id) => {
   });
 };
 
+//A function for updating an existing note
+const updateNote = (note, id) => {
+  note.id = id;
+  return $.ajax({
+    url: "api/notes/"+id,
+    data: note,
+    method: "PUT"
+  })
+}
+
 // If there is an activeNote, display it, otherwise render empty inputs
 const renderActiveNote = () => {
   $saveNoteBtn.hide();
 
   if (activeNote.id) {
     //makes notes title and text uneditable
-    $noteTitle.attr("readonly", true);
-    $noteText.attr("readonly", true);
+    // $noteTitle.attr("readonly", true);
+    // $noteText.attr("readonly", true);
     //sets values in note viewer to those of active note
     $noteTitle.val(activeNote.title);
     $noteText.val(activeNote.text);
@@ -53,18 +63,30 @@ const renderActiveNote = () => {
 
 // Get the note data from the inputs, save it to the db and update the view
 const handleNoteSave = function () {
+  //create an object from the inputs fields
   const newNote = {
-    //create an object from the inputs fields
     title: $noteTitle.val(),
     text: $noteText.val(),
   };
-
   //run a post request with that object then render notes
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
   });
 };
+
+//Get the current data from the inputs, save it to the correct note in db and update the view
+const handleNoteUpdate = function () {
+  //create an object from the inputs fields
+  const newNote = {
+    title: $noteTitle.val(),
+    text: $noteText.val(),
+  };
+  //run a PUT request with that object and render notes
+  updateNote(newNote, activeNote.id).then(() => {
+    getAndRenderNotes();
+  });
+}
 
 // Delete the clicked note
 const handleNoteDelete = function (event) {
@@ -107,12 +129,6 @@ const handleRenderSaveBtn = function () {
   }
 };
 
-const handleEditButton = function() {
-  $noteTitle.attr("readonly", false);
-  $noteText.attr("readonly", false);
-  handleRenderSaveBtn();
-}
-
 // Render's the list of note titles
 const renderNoteList = (notes) => {
   $noteList.empty();
@@ -131,10 +147,7 @@ const renderNoteList = (notes) => {
       const $delBtn = $(
         "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
       );
-      const editBtn = $(
-        "<i class='fas fa-pen float-right text-primary edit-note mr-2'>"
-      );
-      $li.append($delBtn, editBtn);
+      $li.append($delBtn);
     }
     return $li;
   };
@@ -160,8 +173,11 @@ const getAndRenderNotes = () => {
   return getNotes().then(renderNoteList);
 };
 
-//Listener for save button (POST request and re-render)
-$saveNoteBtn.on("click", handleNoteSave);
+//Listener for save button (POST or PUT request and re-render)
+$saveNoteBtn.on("click", () => {
+  if (activeNote.id) handleNoteUpdate();
+  else handleNoteSave();
+});
 //Listener for list group items in notes list (make clicked note active)
 $noteList.on("click", ".list-group-item", handleNoteView);
 //Listener for new note button (makes empty note active)

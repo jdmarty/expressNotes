@@ -37,10 +37,25 @@ apiRouter.post('/notes', (req, res, next) => {
     });
 });
 
+//Update an existing note
+apiRouter.put('/notes/:id', (req, res, next) => {
+    const updateId = req.params.id;
+    fs.readFile(dbPath, 'utf8', (err, data) => {
+        if (err) throw err;
+        const notesList = JSON.parse(data);
+        const updateNoteIndex = notesList.findIndex(note => note.id === updateId)
+        notesList[updateNoteIndex] = req.body;
+        fs.writeFile(dbPath, JSON.stringify(notesList), (err) => {
+          if (err) throw err;
+          console.log("Note Updated!");
+          res.json(notesList[updateNoteIndex]);
+        });
+    })
+})
+
 //Delete an existing note
 apiRouter.delete('/notes/:id', (req, res, next) => {
     const deleteId = req.params.id;
-    console.log(deleteId);
     fs.readFile(dbPath, 'utf8', (err, data) => {
         if (err) throw err;
         //parse data into JSON and filter out matching id
