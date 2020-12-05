@@ -152,6 +152,13 @@ const renderNoteList = (notes) => {
     return $li;
   };
 
+  const createAddButton = () => {
+    const $li = $("<li class='list-group-item py-2 text-center bg-primary text-white'>");
+    const $addButton = $('<i class="fas fa-lg fa-plus-circle"></i>');
+    $li.append($addButton);
+    return $li;
+  }
+
   //if there are notes to render, push a list item created without a delete button
   if (notes.length === 0) {
     noteListItems.push(create$li("No saved Notes", false));
@@ -166,6 +173,9 @@ const renderNoteList = (notes) => {
   });
   //append all list items to the notes list
   $noteList.append(noteListItems);
+  //append a "+" button to the bottom of the notes list
+  $noteList.append(createAddButton());
+
 };
 
 // Gets notes from the db and renders them to the sidebar
