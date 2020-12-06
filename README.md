@@ -5,7 +5,7 @@
 ![Express Notes Notebook Page](https://github.com/jdmarty/expressNotes/blob/main/public/assets/images/notes_page.PNG)
 
 ## Links
-Repository: [https://github.com/jdmarty/expressNotes] (https://github.com/jdmarty/expressNotes)
+Repository: [https://github.com/jdmarty/expressNotes](https://github.com/jdmarty/expressNotes)
 
 ## Description
 
