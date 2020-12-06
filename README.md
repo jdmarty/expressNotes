@@ -1,3 +1,18 @@
+# Express Note Taker
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+## Links
+GitHub Repository: [https://github.com/jdmarty/expressNotes] (https://github.com/jdmarty/expressNotes)
+
+## Description
+
+## Usage
+
+## License
+
+This application uses the ISC License
+
+---------------------------------------------------------------------------------------------------------------------------
+
 # Unit 11 Express Homework: Note Taker
 
 ## Description
