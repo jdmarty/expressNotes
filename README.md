@@ -1,8 +1,8 @@
 # Express Note Taker
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-![Express Notes Home Page]
-![Express Notes Notebook Page]
+![Express Notes Home Page](https://github.com/jdmarty/expressNotes/blob/main/public/assets/images/home_page.PNG)
+![Express Notes Notebook Page](https://github.com/jdmarty/expressNotes/blob/main/public/assets/images/notes_page.PNG)
 ## Links
 Repository: [https://github.com/jdmarty/expressNotes] (https://github.com/jdmarty/expressNotes)
 Deployed:
