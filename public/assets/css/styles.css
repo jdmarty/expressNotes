@@ -70,12 +70,12 @@ html, body {
 }
 
 /* Animations for list item buttons */
-.delete-note, .edit-note {
+.delete-note {
   opacity: 0.5;
   transition: all 0.2s ease-out;
 }
 
-.delete-note:hover, .edit-note:hover {
+.delete-note:hover {
   opacity: 1;
   -webkit-transform: scale(1.3);
   -ms-transform: scale(1.3);

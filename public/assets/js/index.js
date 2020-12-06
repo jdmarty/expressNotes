@@ -151,13 +151,13 @@ const renderNoteList = (notes) => {
     }
     return $li;
   };
-
+  //returns jquery object that is an empty list item with a plus button to add new notes
   const createAddButton = () => {
-    const $li = $("<li class='list-group-item py-2 text-center bg-primary text-white'>");
+    const $li = $("<li class='list-group-item py-2 text-center bg-primary text-white add-note' id='add-note'>");
     const $addButton = $('<i class="fas fa-lg fa-plus-circle"></i>');
     $li.append($addButton);
     return $li;
-  }
+  };
 
   //if there are notes to render, push a list item created without a delete button
   if (notes.length === 0) {
@@ -183,7 +183,7 @@ const getAndRenderNotes = () => {
   return getNotes().then(renderNoteList);
 };
 
-//Listener for save button (POST or PUT request and re-render)
+//Listener for save button (POST or PUT request based on if there is an active note and re-render)
 $saveNoteBtn.on("click", () => {
   if (activeNote.id) handleNoteUpdate();
   else handleNoteSave();
