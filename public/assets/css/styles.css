@@ -6,6 +6,12 @@ html, body {
 }
 
 /* Header ======================================= */
+/* Navbar brand sizing */
+.navbar-brand {
+  font-size: 1.75rem;
+  padding: 0;
+}
+
 /* Hide save button until saving is available */
 .save-note {
   display: none;
