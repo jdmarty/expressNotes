@@ -6,6 +6,7 @@
 
 ## Links
 Repository: [https://github.com/jdmarty/expressNotes](https://github.com/jdmarty/expressNotes)
+Deployed: [https://rocky-springs-40120.herokuapp.com/](https://rocky-springs-40120.herokuapp.com/)
 
 ## Description
 
