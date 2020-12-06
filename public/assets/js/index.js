@@ -119,6 +119,8 @@ const handleNewNoteView = function () {
   renderActiveNote();
 };
 
+// Function to add marker to the back of active note
+
 // If a note's title or text are empty, hide the save button
 // Or else show it
 const handleRenderSaveBtn = function () {
